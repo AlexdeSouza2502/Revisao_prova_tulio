@@ -20,7 +20,8 @@ public class Main {
         System.out.println("Selecione uma opção:");
         System.out.println("1 - Cadastrar internação");
         System.out.println("2 - Listar internações");
-        System.out.println("3 - Sair");
+        System.out.println("3 - Valor total das diarias");
+        System.out.println("4 - sair");
 
         int opcao = scanner.nextInt();
         scanner.nextLine(); // Limpa o buffer do Scanner
@@ -52,7 +53,7 @@ public class Main {
 
             System.out.println("Informe a quantidade de dias de internação:");
             int diasInternacao = scanner.nextInt();
-1
+
             
             Paciente paciente = new Paciente(nomePaciente, cpfPaciente);
             Medico medico = new Medico(nomeMedico, crmMedico);
@@ -73,15 +74,25 @@ public class Main {
         System.out.println("Dias de internação: " + internacao.getDias());
         System.out.println("Valor total: " + internacao.getValorTotal());
         System.out.println("------------------------");
+        
+    } 
+        }else if (opcao == 3) {
+    double totalDiarias = 0;
+    for (Internacao internacao : internacoes) {
+        totalDiarias += internacao.getValorDia() * internacao.getDias();
     }
+    System.out.println("O valor total das diárias é: " + totalDiarias);
+}
 
 
-        } else if (opcao == 3) {
+
+         else if (opcao == 4) {
             System.out.println("Encerrando o programa...");
             break;
         } else {
             System.out.println("Opção inválida, tente novamente.");
         }
     }
+    }
 }
-}
+
